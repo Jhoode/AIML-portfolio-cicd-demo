@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Dayo's Portfolio</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px;}
+    .cat-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+    .cat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+    .cat-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;}
+    .cat-card h3{font-family:var(--font-display);font-size:1rem;font-weight:800;color:var(--c-text);margin-bottom:16px;}
+    .prof-item{margin-bottom:14px;}
+    .prof-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+    .prof-name{font-family:var(--font-display);font-size:.8rem;font-weight:600;color:var(--c-text);}
+    .prof-pct{font-family:var(--font-display);font-size:.72rem;font-weight:700;color:var(--c-muted);}
+    .prof-track{height:6px;background:var(--c-bg);border-radius:3px;overflow:hidden;}
+    .prof-fill{height:100%;border-radius:3px;}
+    .tool-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:64px;}
+    .tool-chip{display:flex;align-items:center;gap:8px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:30px;padding:7px 16px;font-family:var(--font-display);font-size:.8rem;font-weight:600;color:var(--c-text);box-shadow:var(--shadow-sm);transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s;}
+    .tool-chip:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--c-hero-light);}
+    .tool-chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+    .matrix-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:64px;}
+    .matrix-cell{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:20px 16px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .22s var(--ease);}
+    .matrix-cell:hover{transform:scale(1.03);}
+    .matrix-level{font-family:var(--font-display);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+    .matrix-skill{font-size:.86rem;font-weight:600;color:var(--c-text);margin-bottom:4px;font-family:var(--font-display);}
+    .matrix-sub{font-size:.74rem;color:var(--c-muted);}
+    .stars{color:#f39c12;font-size:1rem;margin-bottom:6px;}
+    .learning-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
+    .learn-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:22px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm);}
+    .learn-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+    .learn-title{font-family:var(--font-display);font-size:.88rem;font-weight:700;color:var(--c-text);margin-bottom:4px;}
+    .learn-desc{font-size:.8rem;color:var(--c-muted);line-height:1.55;}
+    .progress-pill{display:inline-block;margin-top:8px;font-family:var(--font-display);font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;background:#eef5fb;color:var(--c-hero-bright);}
+    @media(max-width:900px){.cat-grid{grid-template-columns:1fr 1fr;}.matrix-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:580px){.cat-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="linkedin.html">LinkedIn</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <p class="page-hero__eyebrow fade-up">Capabilities</p>
+  <h1 class="page-hero__title fade-up delay-1">Skills &amp; Expertise</h1>
+  <p class="page-hero__sub fade-up delay-2">A security-first engineer with deep roots in AI architecture, cloud infrastructure, and algorithm design.</p>
+</header>
+<div class="page-body">
+
+  <div class="sec-eyebrow fade-up">Core Domains</div>
+  <h2 class="sec-title fade-up">Skill Categories</h2>
+  <div class="sec-rule fade-up"></div>
+
+  <div class="cat-grid fade-up delay-1">
+    <div class="cat-card">
+      <div class="cat-icon" style="background:linear-gradient(135deg,#1a5276,#2980b9);">🤖</div>
+      <h3>Artificial Intelligence &amp; ML</h3>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Algorithm Design</span><span class="prof-pct">92%</span></div><div class="prof-track"><div class="prof-fill" style="width:92%;background:linear-gradient(90deg,#2980b9,#1abc9c);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Neural Architecture</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="width:85%;background:linear-gradient(90deg,#2980b9,#1abc9c);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Deep Learning (CNNs, RNNs, Transformers)</span><span class="prof-pct">80%</span></div><div class="prof-track"><div class="prof-fill" style="width:80%;background:linear-gradient(90deg,#2980b9,#1abc9c);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Explainable AI (XAI)</span><span class="prof-pct">78%</span></div><div class="prof-track"><div class="prof-fill" style="width:78%;background:linear-gradient(90deg,#2980b9,#1abc9c);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">LLM Training &amp; Fine-Tuning</span><span class="prof-pct">75%</span></div><div class="prof-track"><div class="prof-fill" style="width:75%;background:linear-gradient(90deg,#2980b9,#1abc9c);"></div></div></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon" style="background:linear-gradient(135deg,#f39c12,#d68910);">☁</div>
+      <h3>Cloud &amp; Infrastructure</h3>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">AWS Solutions Architecture</span><span class="prof-pct">95%</span></div><div class="prof-track"><div class="prof-fill" style="width:95%;background:linear-gradient(90deg,#f39c12,#e67e22);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Network Deployment</span><span class="prof-pct">88%</span></div><div class="prof-track"><div class="prof-fill" style="width:88%;background:linear-gradient(90deg,#f39c12,#e67e22);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Cloud Security</span><span class="prof-pct">90%</span></div><div class="prof-track"><div class="prof-fill" style="width:90%;background:linear-gradient(90deg,#f39c12,#e67e22);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Secure Data Pipelines</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="width:85%;background:linear-gradient(90deg,#f39c12,#e67e22);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">IAM &amp; Access Control</span><span class="prof-pct">92%</span></div><div class="prof-track"><div class="prof-fill" style="width:92%;background:linear-gradient(90deg,#f39c12,#e67e22);"></div></div></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">🔐</div>
+      <h3>Cybersecurity</h3>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Threat Modeling</span><span class="prof-pct">90%</span></div><div class="prof-track"><div class="prof-fill" style="width:90%;background:linear-gradient(90deg,#8e44ad,#6c3483);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Risk Assessment</span><span class="prof-pct">87%</span></div><div class="prof-track"><div class="prof-fill" style="width:87%;background:linear-gradient(90deg,#8e44ad,#6c3483);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Penetration Testing</span><span class="prof-pct">75%</span></div><div class="prof-track"><div class="prof-fill" style="width:75%;background:linear-gradient(90deg,#8e44ad,#6c3483);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Incident Response</span><span class="prof-pct">82%</span></div><div class="prof-track"><div class="prof-fill" style="width:82%;background:linear-gradient(90deg,#8e44ad,#6c3483);"></div></div></div>
+      <div class="prof-item"><div class="prof-label"><span class="prof-name">Compliance (NIST, ISO 27001)</span><span class="prof-pct">78%</span></div><div class="prof-track"><div class="prof-fill" style="width:78%;background:linear-gradient(90deg,#8e44ad,#6c3483);"></div></div></div>
+    </div>
+  </div>
+
+  <div class="sec-eyebrow fade-up">Technology</div>
+  <h2 class="sec-title fade-up">Tools &amp; Technologies</h2>
+  <div class="sec-rule fade-up"></div>
+  <div class="tool-cloud fade-up delay-1">
+    <div class="tool-chip"><span class="dot" style="background:#3572a5;"></span>Python</div>
+    <div class="tool-chip"><span class="dot" style="background:#f0c040;"></span>TensorFlow / Keras</div>
+    <div class="tool-chip"><span class="dot" style="background:#ee4c2c;"></span>PyTorch</div>
+    <div class="tool-chip"><span class="dot" style="background:#f39c12;"></span>AWS EC2 / S3 / Lambda</div>
+    <div class="tool-chip"><span class="dot" style="background:#f39c12;"></span>AWS SageMaker</div>
+    <div class="tool-chip"><span class="dot" style="background:#4eaa25;"></span>Linux / Bash</div>
+    <div class="tool-chip"><span class="dot" style="background:#2496ed;"></span>Docker</div>
+    <div class="tool-chip"><span class="dot" style="background:#326ce5;"></span>Kubernetes</div>
+    <div class="tool-chip"><span class="dot" style="background:#f05033;"></span>Git / GitHub</div>
+    <div class="tool-chip"><span class="dot" style="background:#4479a1;"></span>SQL</div>
+    <div class="tool-chip"><span class="dot" style="background:#4b8bbe;"></span>Pandas / NumPy</div>
+    <div class="tool-chip"><span class="dot" style="background:#e67e22;"></span>Scikit-learn</div>
+    <div class="tool-chip"><span class="dot" style="background:#1abc9c;"></span>Hugging Face</div>
+    <div class="tool-chip"><span class="dot" style="background:#8e44ad;"></span>Splunk</div>
+    <div class="tool-chip"><span class="dot" style="background:#c0392b;"></span>Wireshark</div>
+    <div class="tool-chip"><span class="dot" style="background:#2c3e50;"></span>Terraform</div>
+    <div class="tool-chip"><span class="dot" style="background:#1d6fa5;"></span>Jupyter Notebook</div>
+  </div>
+
+  <div class="sec-eyebrow fade-up">Proficiency Levels</div>
+  <h2 class="sec-title fade-up">Competency Matrix</h2>
+  <div class="sec-rule fade-up"></div>
+  <div class="matrix-grid fade-up delay-1">
+    <div class="matrix-cell"><div class="stars">★★★★★</div><div class="matrix-level" style="color:var(--c-green);">Expert</div><div class="matrix-skill">AWS Architecture</div><div class="matrix-sub">Certified · Production deployed</div></div>
+    <div class="matrix-cell"><div class="stars">★★★★★</div><div class="matrix-level" style="color:var(--c-green);">Expert</div><div class="matrix-skill">Cloud Security</div><div class="matrix-sub">IAM · VPC · Compliance</div></div>
+    <div class="matrix-cell"><div class="stars">★★★★☆</div><div class="matrix-level" style="color:var(--c-hero-bright);">Advanced</div><div class="matrix-skill">Python / ML</div><div class="matrix-sub">TensorFlow · PyTorch · sklearn</div></div>
+    <div class="matrix-cell"><div class="stars">★★★★☆</div><div class="matrix-level" style="color:var(--c-hero-bright);">Advanced</div><div class="matrix-skill">Deep Learning</div><div class="matrix-sub">CNNs · RNNs · Transformers</div></div>
+    <div class="matrix-cell"><div class="stars">★★★★☆</div><div class="matrix-level" style="color:var(--c-hero-bright);">Advanced</div><div class="matrix-skill">Linux / Bash</div><div class="matrix-sub">System admin · Scripting</div></div>
+    <div class="matrix-cell"><div class="stars">★★★★☆</div><div class="matrix-level" style="color:var(--c-hero-bright);">Advanced</div><div class="matrix-skill">Threat Modeling</div><div class="matrix-sub">STRIDE · MITRE ATT&amp;CK</div></div>
+    <div class="matrix-cell"><div class="stars">★★★☆☆</div><div class="matrix-level" style="color:var(--c-orange);">Proficient</div><div class="matrix-skill">LLM Fine-Tuning</div><div class="matrix-sub">Hugging Face · LoRA</div></div>
+    <div class="matrix-cell"><div class="stars">★★★☆☆</div><div class="matrix-level" style="color:var(--c-orange);">Proficient</div><div class="matrix-skill">Kubernetes</div><div class="matrix-sub">Container orchestration</div></div>
+  </div>
+
+  <div class="sec-eyebrow fade-up">Growth Mindset</div>
+  <h2 class="sec-title fade-up">Currently Learning</h2>
+  <div class="sec-rule fade-up"></div>
+  <div class="learning-grid fade-up delay-1">
+    <div class="learn-card"><div class="learn-icon" style="background:linear-gradient(135deg,#1abc9c,#16a085);">🧬</div><div><div class="learn-title">Reinforcement Learning from Human Feedback (RLHF)</div><div class="learn-desc">Exploring alignment techniques used in modern LLMs like Claude and GPT.</div><span class="progress-pill">In Progress</span></div></div>
+    <div class="learn-card"><div class="learn-icon" style="background:linear-gradient(135deg,#2980b9,#1a5276);">📡</div><div><div class="learn-title">AWS Certified Security Specialty</div><div class="learn-desc">Advancing cloud security credentials beyond Solutions Architect.</div><span class="progress-pill">Studying</span></div></div>
+    <div class="learn-card"><div class="learn-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">⚡</div><div><div class="learn-title">MLOps &amp; Model Monitoring</div><div class="learn-desc">Building production-grade pipelines with drift detection and automated retraining.</div><span class="progress-pill">Exploring</span></div></div>
+  </div>
+
+</div>
+<footer class="site-footer"><strong>Jude Omo-Ojugo</strong>AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity<br><br><span style="font-size:.75rem;">© 2025 Jude's Portfolio.</span></footer>
+</body>
+</html>

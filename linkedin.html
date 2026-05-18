@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jude's LinkedIn</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .li-profile-card { background:var(--c-surface); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-md); margin-bottom:28px; }
+    .li-cover { height:160px; background:linear-gradient(135deg,var(--c-hero-dark) 0%,var(--c-hero-bright) 60%,var(--c-hero-light) 100%); position:relative; }
+    .li-avatar-wrap { position:absolute; bottom:-44px; left:32px; }
+    .li-avatar { width:90px; height:90px; border-radius:50%; border:4px solid #fff; background:linear-gradient(135deg,#1a5276,#5dade2); object-fit:cover; box-shadow:var(--shadow-sm); }
+    .li-info { padding:56px 32px 28px; }
+    .li-name { font-family:var(--font-display); font-size:1.5rem; font-weight:900; margin-bottom:4px; }
+    .li-headline { font-size:.93rem; color:var(--c-muted); margin-bottom:10px; }
+    .li-location { font-size:.82rem; color:var(--c-faint); margin-bottom:20px; }
+    .li-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .li-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px; }
+    .li-stat { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius); padding:20px; text-align:center; box-shadow:var(--shadow-sm); }
+    .li-stat__num { font-family:var(--font-display); font-size:1.8rem; font-weight:900; color:var(--c-hero-bright); line-height:1; margin-bottom:4px; }
+    .li-stat__label { font-size:.76rem; color:var(--c-muted); font-weight:500; }
+    .li-columns { display:grid; grid-template-columns:1fr 340px; gap:24px; }
+    .li-section { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow-sm); margin-bottom:20px; }
+    .li-section h3 { font-family:var(--font-display); font-size:1rem; font-weight:800; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--c-border); }
+    .li-about-text { font-size:.91rem; color:#3d4a5c; line-height:1.8; }
+    .li-entry { display:flex; gap:16px; margin-bottom:24px; }
+    .li-entry:last-child { margin-bottom:0; }
+    .li-entry-icon { width:46px; height:46px; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+    .li-entry-title { font-family:var(--font-display); font-size:.92rem; font-weight:700; }
+    .li-entry-org { font-size:.83rem; color:var(--c-hero-bright); font-weight:500; }
+    .li-entry-meta { font-size:.77rem; color:var(--c-faint); margin:2px 0 6px; }
+    .li-entry-desc { font-size:.85rem; color:var(--c-muted); line-height:1.65; }
+    .skill-bar-item { margin-bottom:14px; }
+    .skill-bar-label { display:flex; justify-content:space-between; font-size:.83rem; font-weight:600; color:var(--c-text); margin-bottom:5px; font-family:var(--font-display); }
+    .skill-bar-track { height:6px; background:var(--c-border); border-radius:3px; overflow:hidden; }
+    .skill-bar-fill { height:100%; border-radius:3px; background:linear-gradient(90deg,var(--c-hero-bright),var(--c-green)); }
+    .rec-card { background:#f8fafc; border:1px solid var(--c-border); border-radius:8px; padding:16px; margin-bottom:14px; }
+    .rec-card:last-child { margin-bottom:0; }
+    .rec-author { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+    .rec-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--c-hero-mid),var(--c-green)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:.85rem; font-family:var(--font-display); flex-shrink:0; }
+    .rec-name { font-family:var(--font-display); font-size:.85rem; font-weight:700; }
+    .rec-role { font-size:.76rem; color:var(--c-muted); }
+    .rec-text { font-size:.84rem; color:#3d4a5c; line-height:1.65; font-style:italic; }
+    .li-cta { background:linear-gradient(135deg,var(--c-hero-dark),var(--c-hero-mid)); border-radius:14px; padding:36px 32px; text-align:center; color:#fff; margin-top:8px; }
+    .li-cta h3 { font-family:var(--font-display); font-size:1.1rem; font-weight:800; margin-bottom:10px; }
+    .li-cta p { font-size:.88rem; color:rgba(255,255,255,.75); margin-bottom:20px; }
+    @media(max-width:860px){ .li-stats{grid-template-columns:repeat(2,1fr);} .li-columns{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="linkedin.html" class="active">LinkedIn</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <p class="page-hero__eyebrow fade-up">Professional Profile</p>
+  <h1 class="page-hero__title fade-up delay-1">LinkedIn</h1>
+  <p class="page-hero__sub fade-up delay-2">Connect, collaborate, and explore my professional network presence.</p>
+</header>
+<div class="page-body">
+  <!-- Profile card -->
+  <div class="li-profile-card fade-up">
+    <div class="li-cover"><div class="li-avatar-wrap"><img src="your-image.jpg" alt="Jude" class="li-avatar"></div></div>
+    <div class="li-info">
+      <div class="li-name">Jude Omo-Ojugo</div>
+      <div class="li-headline">AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Information Assurance &amp; Cybersecurity</div>
+      <div class="li-location">📍 United States · Open to Opportunities</div>
+      <div class="li-actions">
+        <a href="https://linkedin.com/in/jude-omo-ojugo-nse-smieee-59737999" target="_blank" class="btn btn-primary">Connect on LinkedIn →</a>
+        <a href="contact.html" class="btn btn-outline">Send Message</a>
+      </div>
+    </div>
+  </div>
+  <!-- Stats -->
+  <div class="li-stats fade-up delay-1">
+    <div class="li-stat"><div class="li-stat__num">500+</div><div class="li-stat__label">Connections</div></div>
+    <div class="li-stat"><div class="li-stat__num">4</div><div class="li-stat__label">Featured Projects</div></div>
+    <div class="li-stat"><div class="li-stat__num">3</div><div class="li-stat__label">Certifications</div></div>
+    <div class="li-stat"><div class="li-stat__num">2+</div><div class="li-stat__label">Years Experience</div></div>
+  </div>
+  <!-- Columns -->
+  <div class="li-columns fade-up delay-2">
+    <div>
+      <div class="li-section">
+        <h3>About</h3>
+        <p class="li-about-text">I am an AWS Certified Solutions Architect and AI Solutions Specialist with a master's degree in Information Assurance and Cybersecurity. I specialize in the intersection of secure cloud infrastructure, network deployment, and advanced neural architectures.<br><br>My approach combines deep algorithmic understanding with a security-first mindset to deploy robust, scalable AI solutions that are not only powerful—but interpretable, auditable, and trustworthy.</p>
+      </div>
+      <div class="li-section">
+        <h3>Experience</h3>
+        <div class="li-entry"><div class="li-entry-icon" style="background:linear-gradient(135deg,#1a5276,#2980b9);">☁</div><div><div class="li-entry-title">AI Solutions Specialist</div><div class="li-entry-org">Current Organization</div><div class="li-entry-meta">2024 – Present · Full-time</div><div class="li-entry-desc">Designing and deploying AI-powered cloud solutions on AWS. Leading explainability and bias-auditing initiatives for enterprise ML pipelines.</div></div></div>
+        <div class="li-entry"><div class="li-entry-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">🔐</div><div><div class="li-entry-title">Cloud Security Engineer</div><div class="li-entry-org">Previous Organization</div><div class="li-entry-meta">2022 – 2024 · Full-time</div><div class="li-entry-desc">Architected multi-region IAM policies, VPC security groups, and automated threat detection pipelines across AWS environments.</div></div></div>
+      </div>
+      <div class="li-section">
+        <h3>Education</h3>
+        <div class="li-entry"><div class="li-entry-icon" style="background:linear-gradient(135deg,#1abc9c,#16a085);">🎓</div><div><div class="li-entry-title">M.S. Information Assurance &amp; Cybersecurity</div><div class="li-entry-org">Graduate University</div><div class="li-entry-meta">2022 – 2024</div></div></div>
+        <div class="li-entry"><div class="li-entry-icon" style="background:linear-gradient(135deg,#e67e22,#d35400);">📚</div><div><div class="li-entry-title">B.S. Computer Science</div><div class="li-entry-org">Undergraduate University</div><div class="li-entry-meta">2018 – 2022</div></div></div>
+      </div>
+      <div class="li-section">
+        <h3>Recommendations</h3>
+        <div class="rec-card"><div class="rec-author"><div class="rec-avatar">JD</div><div><div class="rec-name">Jane Doe</div><div class="rec-role">Senior ML Engineer · Former Colleague</div></div></div><p class="rec-text">"Jude brings a rare combination of security rigor and AI fluency. Their work on our LLM deployment pipeline was meticulous, and their commitment to explainability set a new standard for our team."</p></div>
+        <div class="rec-card"><div class="rec-author"><div class="rec-avatar" style="background:linear-gradient(135deg,#e67e22,#d35400);">MS</div><div><div class="rec-name">Mark Smith</div><div class="rec-role">Cloud Architect · Manager</div></div></div><p class="rec-text">"One of the most technically thorough engineers I've worked with. Jude's AWS architecture designs are production-ready from day one, with security baked in at every layer."</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="li-section">
+        <h3>Top Skills</h3>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>AWS Architecture</span><span>95%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Python / ML</span><span>88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Cybersecurity</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>AI / Deep Learning</span><span>82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Linux / Bash</span><span>85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+      </div>
+      <div class="li-section">
+        <h3>Certifications</h3>
+        <div class="li-entry" style="margin-bottom:14px;"><div class="li-entry-icon" style="background:linear-gradient(135deg,#f39c12,#d68910);width:38px;height:38px;font-size:1.1rem;">☁</div><div><div class="li-entry-title" style="font-size:.83rem;">AWS Solutions Architect</div><div class="li-entry-meta" style="margin:0;">Amazon Web Services</div></div></div>
+        <div class="li-entry" style="margin-bottom:0;"><div class="li-entry-icon" style="background:linear-gradient(135deg,#1abc9c,#16a085);width:38px;height:38px;font-size:1.1rem;">🤖</div><div><div class="li-entry-title" style="font-size:.83rem;">AI Solutions Specialist</div><div class="li-entry-meta" style="margin:0;">Industry Certification</div></div></div>
+      </div>
+      <div class="li-cta"><h3>Let's Connect</h3><p>Open to AI, cloud security, and ML engineering roles.</p><a href="https://linkedin.com" target="_blank" class="btn btn-primary" style="background:#fff;color:var(--c-hero-dark);">View Full LinkedIn Profile →</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer"><strong>Jude Omo-Ojugo</strong>AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity<br><br><span style="font-size:.75rem;">© 2025 Dayo's Portfolio.</span></footer>
+</body>
+</html>

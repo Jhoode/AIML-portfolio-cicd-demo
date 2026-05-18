@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Jude's Portfolio</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .about-grid { display:grid; grid-template-columns:300px 1fr; gap:64px; align-items:start; }
+    .about-sidebar { position:sticky; top:80px; }
+    .profile-wrap { position:relative; margin-bottom:28px; }
+    .profile-img { width:100%; aspect-ratio:1; border-radius:12px; object-fit:cover; display:block; background:linear-gradient(135deg,#1a5276,#5dade2); box-shadow:var(--shadow-md); }
+    .profile-badge { position:absolute; bottom:-14px; right:-14px; background:var(--c-green); color:#fff; font-family:var(--font-display); font-size:.7rem; font-weight:700; padding:8px 14px; border-radius:30px; box-shadow:0 4px 14px rgba(26,188,156,.4); }
+    .sidebar-name { font-family:var(--font-display); font-size:1.3rem; font-weight:900; margin-top:28px; margin-bottom:4px; }
+    .sidebar-role { font-size:.83rem; color:var(--c-hero-bright); font-weight:600; font-family:var(--font-display); margin-bottom:20px; }
+    .contact-links { display:flex; flex-direction:column; gap:10px; margin-bottom:30px; }
+    .contact-link { display:flex; align-items:center; gap:10px; font-size:.83rem; color:var(--c-muted); transition:color .2s; }
+    .contact-link:hover { color:var(--c-hero-bright); }
+    .contact-link .icon { width:30px; height:30px; background:var(--c-bg); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .skill-group { margin-bottom:22px; }
+    .skill-group h4 { font-family:var(--font-display); font-size:.68rem; text-transform:uppercase; letter-spacing:2px; color:var(--c-faint); border-bottom:1px solid var(--c-border); padding-bottom:6px; margin-bottom:12px; }
+    .about-main p { font-size:.96rem; color:#3d4a5c; line-height:1.85; margin-bottom:20px; }
+    .about-main h3 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--c-text); margin:40px 0 14px; }
+    .timeline { position:relative; padding-left:28px; }
+    .timeline::before { content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(to bottom,var(--c-hero-bright),var(--c-green)); border-radius:2px; }
+    .tl-item { position:relative; margin-bottom:36px; }
+    .tl-dot { position:absolute; left:-25px; top:5px; width:12px; height:12px; border-radius:50%; background:var(--c-hero-bright); border:2px solid #fff; box-shadow:0 0 0 2px var(--c-hero-bright); }
+    .tl-date { font-family:var(--font-display); font-size:.7rem; color:var(--c-green); letter-spacing:1px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+    .tl-title { font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:2px; }
+    .tl-org { font-size:.83rem; color:var(--c-hero-bright); font-weight:500; margin-bottom:6px; }
+    .tl-desc { font-size:.88rem; color:var(--c-muted); line-height:1.65; }
+    .certs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; margin-top:16px; }
+    .cert-card { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius); padding:18px 16px; display:flex; align-items:center; gap:14px; box-shadow:var(--shadow-sm); transition:transform .22s var(--ease),box-shadow .22s var(--ease); }
+    .cert-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .cert-icon { width:42px; height:42px; border-radius:10px; background:linear-gradient(135deg,var(--c-hero-mid),var(--c-hero-bright)); display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+    .cert-name { font-family:var(--font-display); font-size:.8rem; font-weight:700; line-height:1.35; }
+    .cert-issuer { font-size:.72rem; color:var(--c-muted); margin-top:2px; }
+    @media(max-width:860px){ .about-grid{grid-template-columns:1fr;} .about-sidebar{position:static;} }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="linkedin.html">LinkedIn</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <p class="page-hero__eyebrow fade-up">Who I Am</p>
+  <h1 class="page-hero__title fade-up delay-1">About Me</h1>
+  <p class="page-hero__sub fade-up delay-2">AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity</p>
+</header>
+<div class="page-body">
+  <div class="about-grid">
+    <aside class="about-sidebar fade-up">
+      <div class="profile-wrap">
+        <img src="your-image.jpg" alt="Jude Omo-Ojugo" class="profile-img">
+        <span class="profile-badge">✦ Available for Hire</span>
+      </div>
+      <div class="sidebar-name">Jude Omo-Ojugo</div>
+      <div class="sidebar-role">Aspiring AI Lead</div>
+      <div class="contact-links">
+        <a href="mailto:ojugo.jude@gmail.com" class="contact-link"><span class="icon">✉</span>ojugo.jude@gmail.com</a>
+        <a href="linkedin.html" class="contact-link"><span class="icon">in</span>www.linkedin.com/in/
+jude-omo-ojugo-nse-smieee-59737999
+</a>
+        <a href="contact.html" class="contact-link"><span class="icon">📍</span>United States</a>
+      </div>
+      <div class="skill-group"><h4>Technical Core</h4><div class="tag-list"><span class="tag">Python</span><span class="tag">Linux / Bash</span><span class="tag">AI Architecture</span><span class="tag">Algorithm Design</span></div></div>
+      <div class="skill-group"><h4>Cloud &amp; Infrastructure</h4><div class="tag-list"><span class="tag">AWS</span><span class="tag">Network Deployment</span><span class="tag">Cloud Security</span></div></div>
+      <div class="skill-group"><h4>Cybersecurity</h4><div class="tag-list"><span class="tag">Threat Modeling</span><span class="tag">IAM</span><span class="tag">Secure Pipelines</span></div></div>
+      <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;">Get In Touch →</a>
+    </aside>
+    <main class="about-main fade-up delay-2">
+      <div class="sec-eyebrow">My Story</div>
+      <h2 class="sec-title">Bridging Security, Cloud &amp; AI</h2>
+      <div class="sec-rule"></div>
+      <p>I am an <strong>AWS Certified Solutions Architect</strong> and <strong>AI Solutions Specialist</strong> with a master's in <strong>Information Assurance and Cybersecurity</strong>. I specialize in deploying secure cloud infrastructure, network deployment, and advanced neural architectures.</p>
+      <p>My approach combines deep algorithmic understanding with a security-first mindset. Whether architecting scalable AWS environments or designing multi-layer neural networks, I treat every system as a trust boundary—performant and provably safe.</p>
+      <p>This portfolio reflects my journey from foundational algorithm selection to training large language models and building explainable AI frameworks—always with an eye toward real-world deployment.</p>
+      <h3>Education</h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2025 – 2026</div><div class="tl-title">M.S. Computer Information System &amp; Artificial Intelligence</div><div class="tl-org">Indiana Wesleyan University</div><div class="tl-desc">Model Deployment, Python Algorithms, Advanced Machine Learning, and AI Architecture and Design.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2020 – 2022</div><div class="tl-title">M.S. Information Assurance &amp; Cybersecurity</div><div class="tl-org">St Cloud State University</div><div class="tl-desc">Secure system design, identity management, threat modeling, and AI safety frameworks.</div></div>
+        <div class="tl-item"><div class="tl-dot" style="background:var(--c-green);box-shadow:0 0 0 2px var(--c-green);"></div><div class="tl-date">2002 – 2007</div><div class="tl-title">B.Eng Electrical/Electronics Engineering</div><div class="tl-org">Ambrose Alli University</div><div class="tl-desc">Control Engineering, Basic Computer Programming, operating systems, and network engineering.</div></div>
+      </div>
+      <h3>Experience</h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2025 – Present</div><div class="tl-title">Network Deployment Build Lead</div><div class="tl-org">AWS</div><div class="tl-desc">Building AWS Cloud Infrastructure, implementing secure data pipelines.</div></div>
+        <div class="tl-item"><div class="tl-dot" style="background:var(--c-green);box-shadow:0 0 0 2px var(--c-green);"></div><div class="tl-date">2022 – 2025</div><div class="tl-title">Tech Deployment Engineer</div><div class="tl-org">AWS</div><div class="tl-desc">Support the deployment of advanced IoT architecture.</div></div>
+      </div>
+      <h3>Certifications</h3>
+      <div class="certs-grid">
+        <div class="cert-card"><div class="cert-icon">☁</div><div><div class="cert-name">AWS Solutions Architect Associate</div><div class="cert-issuer">Amazon Web Services</div></div></div>
+        <div class="cert-card"><div class="cert-icon" style="background:linear-gradient(135deg,#1abc9c,#16a085);">🤖</div><div><div class="cert-name">AWS Cloud Practitioner</div><div class="cert-issuer">Amazon Web Services</div></div></div>
+        <div class="cert-card"><div class="cert-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">🔐</div><div><div class="cert-name">Google Cybersecurity Professional  &amp; Course</div><div class="cert-issuer">Google</div></div></div>
+      </div>
+    </main>
+  </div>
+</div>
+<footer class="site-footer"><strong>Jude Omo-Ojugo</strong>AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity<br><br><span style="font-size:.75rem;">© 2025 Jude's Portfolio.</span></footer>
+</body>
+</html>

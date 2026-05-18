@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jude's Portfolio | Aspiring AI Lead</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-dark:   #0d2137;
+      --blue-mid:    #1a5276;
+      --blue-bright: #2980b9;
+      --blue-light:  #5dade2;
+      --green:       #1abc9c;
+      --orange:      #e67e22;
+      --text:        #1a202c;
+      --muted:       #64748b;
+      --bg:          #f0f3f7;
+      --surface:     #ffffff;
+      --border:      #e2e8f0;
+      --radius:      10px;
+      --shadow-sm:   0 2px 10px rgba(0,0,0,.07);
+      --shadow-md:   0 8px 28px rgba(0,0,0,.11);
+      --ease:        cubic-bezier(.4,0,.2,1);
+      --font-d:      'Montserrat', sans-serif;
+      --font-b:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--text); background: var(--surface); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; justify-content: center;
+      padding: 10px 20px;
+    }
+    .nav-pill {
+      display: flex; gap: 2px;
+      background: rgba(255,255,255,.93);
+      border-radius: 40px;
+      padding: 5px 8px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.13);
+      backdrop-filter: blur(10px);
+    }
+    .nav-pill a {
+      font-family: var(--font-d);
+      font-size: .78rem; font-weight: 600; letter-spacing: .4px;
+      color: var(--text);
+      padding: 7px 18px; border-radius: 30px;
+      transition: background .22s var(--ease), color .22s var(--ease);
+    }
+    .nav-pill a:hover, .nav-pill a.active {
+      background: var(--blue-bright); color: #fff;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d2137 0%, #1a5276 40%, #2980b9 70%, #5dade2 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 75% 25%, rgba(255,255,255,.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 75%, rgba(0,0,0,.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 700px; }
+    .hero-title {
+      font-family: var(--font-d); font-weight: 900;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: #fff; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 20px rgba(0,0,0,.25);
+    }
+    .hero-sub {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 400;
+      color: rgba(255,255,255,.85); letter-spacing: 1px; margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: .93rem; color: rgba(255,255,255,.72);
+      line-height: 1.75; max-width: 520px; margin: 0 auto 36px;
+    }
+    .btn-hero {
+      display: inline-block;
+      padding: 11px 32px;
+      border: 2px solid rgba(255,255,255,.75); border-radius: 30px;
+      color: #fff; font-family: var(--font-d); font-size: .84rem; font-weight: 600;
+      letter-spacing: 1px;
+      transition: background .25s var(--ease);
+    }
+    .btn-hero:hover { background: rgba(255,255,255,.18); }
+    .scroll-arrow {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      width: 36px; height: 36px;
+      border: 2px solid rgba(255,255,255,.55); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.75); font-size: 1.1rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── PAGES SECTION ── */
+    #pages { background: #fff; padding: 80px 40px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .sec-eyebrow {
+      font-family: var(--font-d); font-size: .7rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--blue-bright); margin-bottom: 8px;
+    }
+    .sec-title {
+      font-family: var(--font-d); font-size: 1.6rem; font-weight: 800;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .sec-rule {
+      width: 48px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--green), var(--blue-bright));
+      margin-bottom: 44px;
+    }
+
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+    .page-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px 24px;
+      text-align: center;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s;
+    }
+    .page-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-light);
+    }
+    .page-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; font-family: var(--font-d); font-weight: 900;
+      color: #fff;
+    }
+    .page-card h3 {
+      font-family: var(--font-d); font-size: .92rem; font-weight: 800; color: var(--text);
+    }
+    .page-card p { font-size: .77rem; color: var(--muted); line-height: 1.5; }
+    .page-arrow {
+      font-family: var(--font-d); font-size: .74rem; font-weight: 700;
+      color: var(--blue-bright); letter-spacing: .4px;
+      margin-top: 4px;
+    }
+
+    /* ── GALLERY SECTION ── */
+    #gallery { background: var(--bg); padding: 80px 40px; }
+
+    .gallery-label {
+      display: flex; align-items: center; gap: 10px;
+      justify-content: center; margin-bottom: 10px;
+    }
+    .gallery-icon { color: var(--green); font-size: 1.2rem; }
+    .gallery-label h2 {
+      font-family: var(--font-d); font-size: 1.6rem; font-weight: 700; color: var(--text);
+    }
+    .gallery-label h2 em { color: var(--green); font-style: normal; }
+    .gallery-rule {
+      width: 60px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--green), var(--blue-bright));
+      margin: 10px auto 50px;
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .proj-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: block;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+    .proj-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+    .proj-thumb {
+      aspect-ratio: 16/10;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .proj-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .proj-badge {
+      position: absolute; top: 10px; right: 10px;
+      font-family: var(--font-d); font-size: .62rem; font-weight: 700;
+      letter-spacing: .5px; text-transform: uppercase;
+      background: rgba(0,0,0,.55); color: #fff;
+      padding: 3px 9px; border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .proj-body { padding: 16px; }
+    .proj-name {
+      font-family: var(--font-d); font-size: .87rem; font-weight: 700; margin-bottom: 5px;
+    }
+    .proj-name.orange { color: var(--orange); }
+    .proj-name.blue   { color: var(--blue-bright); }
+    .proj-name.green  { color: var(--green); }
+    .proj-desc { font-size: .76rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+    .proj-btn {
+      display: inline-block;
+      font-family: var(--font-d); font-size: .72rem; font-weight: 700;
+      color: #fff; background: var(--blue-bright);
+      padding: 5px 14px; border-radius: 20px;
+      transition: background .2s;
+    }
+    .proj-btn:hover { background: var(--blue-mid); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--blue-dark); color: rgba(255,255,255,.5);
+      text-align: center; padding: 40px 20px;
+      font-family: var(--font-d); font-size: .82rem;
+    }
+    footer strong { color: #fff; display: block; font-size: 1rem; margin-bottom: 6px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .pages-grid { grid-template-columns: repeat(3, 1fr); }
+      .proj-grid  { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .pages-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="linkedin.html">LinkedIn</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Jude's Portfolio</h1>
+    <p class="hero-sub">Aspiring AI Lead</p>
+    <p class="hero-desc">An aspiring AI leader passionate about bridging technical depth and strategic communication to drive meaningful innovation across industries.</p>
+    <a href="about.html" class="btn-hero">About Me</a>
+  </div>
+  <a href="#pages" class="scroll-arrow">&#8964;</a>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SITE PAGES  (5 hrefs)
+════════════════════════════════════════ -->
+<section id="pages">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Navigate</div>
+    <h2 class="sec-title">Explore the Portfolio</h2>
+    <div class="sec-rule"></div>
+
+    <div class="pages-grid">
+
+      <a href="about.html" class="page-card">
+        <div class="page-icon" style="background:linear-gradient(135deg,#1a5276,#2980b9);">👤</div>
+        <h3>About</h3>
+        <p>Background, education, experience &amp; certifications</p>
+        <span class="page-arrow">Visit →</span>
+      </a>
+
+      <a href="linkedin.html" class="page-card">
+        <div class="page-icon" style="background:linear-gradient(135deg,#0077b5,#005b8e); font-size:1.1rem; letter-spacing:-1px;">in</div>
+        <h3>LinkedIn</h3>
+        <p>Professional profile, endorsements &amp; recommendations</p>
+        <span class="page-arrow">Visit →</span>
+      </a>
+
+      <a href="projects.html" class="page-card">
+        <div class="page-icon" style="background:linear-gradient(135deg,#1abc9c,#16a085);">🗂</div>
+        <h3>Projects</h3>
+        <p>Deep dives into AI/ML artifacts and frameworks</p>
+        <span class="page-arrow">Visit →</span>
+      </a>
+
+      <a href="skills.html" class="page-card">
+        <div class="page-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">⚡</div>
+        <h3>Skills</h3>
+        <p>Proficiency bars, tools, competency matrix &amp; learning goals</p>
+        <span class="page-arrow">Visit →</span>
+      </a>
+
+      <a href="contact.html" class="page-card">
+        <div class="page-icon" style="background:linear-gradient(135deg,#e67e22,#d35400);">✉</div>
+        <h3>Contact</h3>
+        <p>Send a message or connect for opportunities</p>
+        <span class="page-arrow">Visit →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROJECT GALLERY  (8 hrefs)
+════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="section-inner">
+
+    <div class="gallery-label">
+      <span class="gallery-icon">✳</span>
+      <h2>Project <em>Gallery</em></h2>
+    </div>
+    <div class="gallery-rule"></div>
+
+    <div class="proj-grid">
+
+      <!-- 
+      <a href="projects.html#airlytics" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#1a2a4a,#2c5f8a);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="40" r="22" fill="none" stroke="#5dade2" stroke-width="1.5"/>
+            <path d="M50 30 Q70 20 90 35 L85 50 Q65 38 50 45Z" fill="#2980b9" opacity=".7"/>
+            <text x="14" y="72" font-size="9" fill="#fff" font-family="sans-serif">AI</text>
+            <line x1="55" y1="55" x2="95" y2="30" stroke="#5dade2" stroke-width="1" stroke-dasharray="3"/>
+          </svg>
+          <span class="proj-badge">AI / ML</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name orange">Smart Travel by AirLytics</div>
+          <div class="proj-desc">AI chatbot for flight pricing fairness</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+     
+      <a href="projects.html#security" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1e3a5f);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <rect x="45" y="15" width="30" height="50" rx="4" fill="none" stroke="#5dade2" stroke-width="1.5"/>
+            <circle cx="60" cy="40" r="10" fill="#2980b9" opacity=".6"/>
+            <path d="M30 35 L45 35 M75 35 L90 35" stroke="#4fc3f7" stroke-width="1.5"/>
+            <circle cx="60" cy="40" r="4" fill="#5dade2"/>
+          </svg>
+          <span class="proj-badge">Security</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name blue">Security Knights</div>
+          <div class="proj-desc">Gamified secure coding training</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+      
+      <a href="projects.html#aishield" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#1565c0,#1976d2);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 10 L85 22 L85 52 Q60 70 35 52 L35 22Z" fill="none" stroke="#fff" stroke-width="2"/>
+            <path d="M60 20 L78 30 L78 52 Q60 64 42 52 L42 30Z" fill="#1976d2" opacity=".5"/>
+            <text x="49" y="44" font-size="10" fill="#fff" font-weight="bold" font-family="sans-serif">AI</text>
+            <text x="37" y="56" font-size="7" fill="rgba(255,255,255,.7)" font-family="sans-serif">Shield</text>
+          </svg>
+          <span class="proj-badge">Cloud</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name blue">AI Shield</div>
+          <div class="proj-desc">Cybersecurity for non-technical users</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+     
+      <a href="projects.html#promptcraft" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#111,#2d2d2d);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="15" width="100" height="50" rx="4" fill="none" stroke="#555" stroke-width="1"/>
+            <rect x="10" y="15" width="100" height="12" rx="4" fill="#333"/>
+            <circle cx="20" cy="21" r="3" fill="#ff5f57"/>
+            <circle cx="30" cy="21" r="3" fill="#febc2e"/>
+            <circle cx="40" cy="21" r="3" fill="#28c840"/>
+            <text x="15" y="40" font-size="7" fill="#aaa" font-family="monospace">Prompt Marketplace</text>
+            <text x="15" y="52" font-size="6" fill="#666" font-family="monospace">$ optimize --run</text>
+          </svg>
+          <span class="proj-badge">Gen AI</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name blue">PromptCraft</div>
+          <div class="proj-desc">AI prompt marketplace with versioning &amp; analytics</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+       -->
+      <a href="projects.html#project1" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0a1628,#1b3a5c);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="40" r="8" fill="#27ae60"/>
+            <circle cx="30" cy="25" r="5" fill="#2980b9"/>
+            <circle cx="90" cy="25" r="5" fill="#e67e22"/>
+            <circle cx="30" cy="55" r="5" fill="#8e44ad"/>
+            <circle cx="90" cy="55" r="5" fill="#c0392b"/>
+            <line x1="60" y1="40" x2="30" y2="25" stroke="#5dade2" stroke-width="1.2"/>
+            <line x1="60" y1="40" x2="90" y2="25" stroke="#5dade2" stroke-width="1.2"/>
+            <line x1="60" y1="40" x2="30" y2="55" stroke="#5dade2" stroke-width="1.2"/>
+            <line x1="60" y1="40" x2="90" y2="55" stroke="#5dade2" stroke-width="1.2"/>
+          </svg>
+          <span class="proj-badge">AI / ML</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name orange">ML Algorithm Framework</div>
+          <div class="proj-desc">Visual infographic of supervised, unsupervised, and deep learning algorithms</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+      <!-- ⑥ Neural Network Visual Framework -->
+      <a href="projects.html#project2" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1a3a5a);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="25" r="4" fill="#5dade2"/>
+            <circle cx="20" cy="40" r="4" fill="#5dade2"/>
+            <circle cx="20" cy="55" r="4" fill="#5dade2"/>
+            <circle cx="55" cy="20" r="4" fill="#27ae60"/>
+            <circle cx="55" cy="35" r="4" fill="#27ae60"/>
+            <circle cx="55" cy="50" r="4" fill="#27ae60"/>
+            <circle cx="55" cy="65" r="4" fill="#27ae60"/>
+            <circle cx="90" cy="30" r="4" fill="#e67e22"/>
+            <circle cx="90" cy="50" r="4" fill="#e67e22"/>
+            <line x1="24" y1="25" x2="51" y2="20" stroke="#444" stroke-width=".8"/>
+            <line x1="24" y1="25" x2="51" y2="35" stroke="#444" stroke-width=".8"/>
+            <line x1="24" y1="40" x2="51" y2="35" stroke="#444" stroke-width=".8"/>
+            <line x1="24" y1="55" x2="51" y2="50" stroke="#444" stroke-width=".8"/>
+            <line x1="59" y1="35" x2="86" y2="30" stroke="#444" stroke-width=".8"/>
+            <line x1="59" y1="50" x2="86" y2="50" stroke="#444" stroke-width=".8"/>
+          </svg>
+          <span class="proj-badge">Deep Learning</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name blue">Neural Network Visual Framework</div>
+          <div class="proj-desc">Interactive guide to layers, neurons, weights, and optimization</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+      <!-- ⑦ How Generative AI LLMs Are Trained -->
+      <a href="projects.html#project3" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#111,#1a1a2e);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="20" height="22" rx="3" fill="#1565c0"/>
+            <rect x="40" y="22" width="20" height="36" rx="3" fill="#e67e22"/>
+            <rect x="70" y="15" width="20" height="50" rx="3" fill="#27ae60"/>
+            <rect x="100" y="10" width="12" height="55" rx="3" fill="#c0392b"/>
+            <line x1="10" y1="75" x2="115" y2="75" stroke="#555" stroke-width="1"/>
+            <text x="5" y="10" font-size="7" fill="#aaa" font-family="sans-serif">Generative AI LLMs</text>
+          </svg>
+          <span class="proj-badge">Gen AI</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name green">How Generative AI LLMs Are Trained</div>
+          <div class="proj-desc">Visual pipeline of LLM training – GPT-4, Claude, LLaMA &amp; Gemini</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+      <!-- ⑧ Explainable AI Infographic -->
+      <a href="projects.html#project4" class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0a0f1e,#1a1a3a);">
+          <svg viewBox="0 0 120 80" width="70%" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="20" font-size="8" fill="#5dade2" font-family="sans-serif" font-weight="bold">Explainable</text>
+            <text x="10" y="32" font-size="8" fill="#fff" font-family="sans-serif" font-weight="bold">Artificial</text>
+            <text x="10" y="44" font-size="8" fill="#fff" font-family="sans-serif" font-weight="bold">Intelligence</text>
+            <line x1="10" y1="50" x2="110" y2="50" stroke="#333" stroke-width="1"/>
+            <rect x="10" y="55" width="30" height="6" rx="2" fill="#27ae60" opacity=".7"/>
+            <rect x="45" y="55" width="20" height="6" rx="2" fill="#2980b9" opacity=".7"/>
+            <rect x="70" y="55" width="40" height="6" rx="2" fill="#e67e22" opacity=".7"/>
+            <rect x="10" y="65" width="50" height="6" rx="2" fill="#8e44ad" opacity=".7"/>
+            <rect x="65" y="65" width="25" height="6" rx="2" fill="#c0392b" opacity=".7"/>
+          </svg>
+          <span class="proj-badge">XAI</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name blue">Explainable AI Infographic</div>
+          <div class="proj-desc">Visual breakdown of XAI challenges, validation metrics &amp; interpretability strategies</div>
+          <span class="proj-btn">View Project</span>
+        </div>
+      </a>
+
+    </div><!-- /proj-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <strong>Jude Omo-Ojugo</strong>
+  AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity
+  <br><br>
+  <span style="font-size:.74rem;">© 2025 Jude's Portfolio. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

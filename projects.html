@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jude's Projects</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .proj-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;margin-bottom:80px;}
+    .gal-card{background:var(--c-surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--c-border);box-shadow:var(--shadow-sm);display:block;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+    .gal-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+    .gal-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .gal-badge{position:absolute;top:10px;right:10px;font-family:var(--font-display);font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:rgba(0,0,0,.55);color:#fff;padding:3px 9px;border-radius:20px;backdrop-filter:blur(4px);}
+    .gal-body{padding:16px;}
+    .gal-title{font-family:var(--font-display);font-size:.88rem;font-weight:700;margin-bottom:5px;}
+    .gal-title.orange{color:var(--c-orange);}.gal-title.blue{color:var(--c-hero-bright);}.gal-title.green{color:var(--c-green);}
+    .gal-desc{font-size:.77rem;color:var(--c-muted);line-height:1.5;margin-bottom:12px;}
+    .gal-link{font-family:var(--font-display);font-size:.74rem;font-weight:700;color:var(--c-hero-bright);text-transform:uppercase;letter-spacing:.5px;}
+    .proj-detail{margin-bottom:80px;scroll-margin-top:80px;}
+    .proj-detail-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:24px;}
+    .proj-number{font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--c-border);line-height:1;flex-shrink:0;margin-top:4px;}
+    .proj-detail h2{font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:var(--c-text);line-height:1.3;margin-bottom:6px;}
+    .proj-type-badge{display:inline-block;font-family:var(--font-display);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;background:#eef5fb;color:var(--c-hero-mid);border:1px solid #bcd6ea;}
+    .proj-body p{font-size:.93rem;color:#3d4a5c;line-height:1.85;margin-bottom:16px;}
+    .proj-body h4{font-family:var(--font-display);font-size:.92rem;font-weight:700;color:var(--c-text);margin:28px 0 12px;}
+    .proj-body ul{padding-left:22px;margin-bottom:16px;}
+    .proj-body li{font-size:.9rem;color:#3d4a5c;line-height:1.8;}
+    .figure-wrap{background:#f8fafc;border:1px solid var(--c-border);border-radius:var(--radius);padding:20px;margin:24px 0;}
+    .figure-wrap img{width:100%;border-radius:6px;border:1px solid var(--c-border);}
+    .fig-caption{font-size:.8rem;color:var(--c-faint);text-align:center;margin-top:10px;}
+    .insight-box{background:linear-gradient(135deg,#f0f8ff,#e8f5e9);border-left:4px solid var(--c-green);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:24px 0;}
+    .insight-box h4{font-family:var(--font-display);font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--c-green);margin-bottom:8px;}
+    .insight-box p{font-size:.9rem;color:#3d5a3e;line-height:1.75;margin:0;}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="linkedin.html">LinkedIn</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <p class="page-hero__eyebrow fade-up">My Work</p>
+  <h1 class="page-hero__title fade-up delay-1">Featured Projects</h1>
+  <p class="page-hero__sub fade-up delay-2">Strategic frameworks, neural architectures, LLM pipelines, and explainable AI — built with purpose.</p>
+</header>
+<div class="page-body">
+
+  <div class="sec-eyebrow fade-up">All Projects</div>
+  <h2 class="sec-title fade-up">Project Gallery</h2>
+  <div class="sec-rule fade-up"></div>
+
+  <div class="proj-gallery fade-up delay-1">
+
+   <!-- <a href="#airlytics" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#1a2a4a,#2c5f8a);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="40" r="22" fill="none" stroke="#5dade2" stroke-width="1.5"/><path d="M50 30 Q70 20 90 35 L85 50 Q65 38 50 45Z" fill="#2980b9" opacity=".7"/><text x="14" y="72" font-size="9" fill="#fff" font-family="sans-serif">AI</text></svg>
+        <span class="gal-badge">AI / ML</span>
+      </div>
+      <div class="gal-body"><div class="gal-title orange">Smart Travel by AirLytics</div><div class="gal-desc">AI chatbot for flight pricing fairness</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+    <a href="#security" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1e3a5f);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="15" width="30" height="50" rx="4" fill="none" stroke="#5dade2" stroke-width="1.5"/><circle cx="60" cy="40" r="10" fill="#2980b9" opacity=".6"/><circle cx="60" cy="40" r="4" fill="#5dade2"/></svg>
+        <span class="gal-badge">Security</span>
+      </div>
+      <div class="gal-body"><div class="gal-title blue">Security Knights</div><div class="gal-desc">Gamified secure coding training</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+    <a href="#aishield" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#1565c0,#1976d2);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><path d="M60 10 L85 22 L85 52 Q60 70 35 52 L35 22Z" fill="none" stroke="#fff" stroke-width="2"/><text x="49" y="44" font-size="10" fill="#fff" font-weight="bold" font-family="sans-serif">AI</text><text x="37" y="57" font-size="7" fill="rgba(255,255,255,.7)" font-family="sans-serif">Shield</text></svg>
+        <span class="gal-badge">Cloud</span>
+      </div>
+      <div class="gal-body"><div class="gal-title blue">AI Shield</div><div class="gal-desc">Cybersecurity for non-technical users</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+    <a href="#promptcraft" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#111,#2d2d2d);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="15" width="100" height="50" rx="4" fill="none" stroke="#555" stroke-width="1"/><rect x="10" y="15" width="100" height="12" rx="4" fill="#333"/><circle cx="20" cy="21" r="3" fill="#ff5f57"/><circle cx="30" cy="21" r="3" fill="#febc2e"/><circle cx="40" cy="21" r="3" fill="#28c840"/><text x="15" y="40" font-size="7" fill="#aaa" font-family="monospace">Prompt Marketplace</text></svg>
+        <span class="gal-badge">Gen AI</span>
+      </div>
+      <div class="gal-body"><div class="gal-title blue">PromptCraft</div><div class="gal-desc">AI prompt marketplace with versioning &amp; analytics</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+  -->
+    <a href="#project1" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#0a1628,#1b3a5c);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="40" r="8" fill="#27ae60"/><circle cx="30" cy="25" r="5" fill="#2980b9"/><circle cx="90" cy="25" r="5" fill="#e67e22"/><circle cx="30" cy="55" r="5" fill="#8e44ad"/><circle cx="90" cy="55" r="5" fill="#c0392b"/><line x1="60" y1="40" x2="30" y2="25" stroke="#5dade2" stroke-width="1.2"/><line x1="60" y1="40" x2="90" y2="25" stroke="#5dade2" stroke-width="1.2"/><line x1="60" y1="40" x2="30" y2="55" stroke="#5dade2" stroke-width="1.2"/><line x1="60" y1="40" x2="90" y2="55" stroke="#5dade2" stroke-width="1.2"/></svg>
+        <span class="gal-badge">AI / ML</span>
+      </div>
+      <div class="gal-body"><div class="gal-title orange">ML Algorithm Framework</div><div class="gal-desc">Visual infographic of supervised, unsupervised, and deep learning algorithms</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+    <a href="#project2" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1a3a5a);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="25" r="4" fill="#5dade2"/><circle cx="20" cy="40" r="4" fill="#5dade2"/><circle cx="20" cy="55" r="4" fill="#5dade2"/><circle cx="55" cy="20" r="4" fill="#27ae60"/><circle cx="55" cy="35" r="4" fill="#27ae60"/><circle cx="55" cy="50" r="4" fill="#27ae60"/><circle cx="55" cy="65" r="4" fill="#27ae60"/><circle cx="90" cy="30" r="4" fill="#e67e22"/><circle cx="90" cy="50" r="4" fill="#e67e22"/><line x1="24" y1="25" x2="51" y2="20" stroke="#444" stroke-width=".8"/><line x1="24" y1="40" x2="51" y2="35" stroke="#444" stroke-width=".8"/><line x1="59" y1="35" x2="86" y2="30" stroke="#444" stroke-width=".8"/></svg>
+        <span class="gal-badge">Deep Learning</span>
+      </div>
+      <div class="gal-body"><div class="gal-title blue">Neural Network Visual Framework</div><div class="gal-desc">Interactive guide to layers, neurons, weights, and optimization</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+    <a href="#project3" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#111,#1a1a2e);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="30" width="20" height="22" rx="3" fill="#1565c0"/><rect x="40" y="22" width="20" height="36" rx="3" fill="#e67e22"/><rect x="70" y="15" width="20" height="50" rx="3" fill="#27ae60"/><rect x="100" y="10" width="12" height="55" rx="3" fill="#c0392b"/><line x1="10" y1="75" x2="115" y2="75" stroke="#555" stroke-width="1"/></svg>
+        <span class="gal-badge">Gen AI</span>
+      </div>
+      <div class="gal-body"><div class="gal-title green">How Generative AI LLMs Are Trained</div><div class="gal-desc">Visual pipeline of LLM training — GPT-4, Claude, LLaMA &amp; Gemini</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+    <a href="#project4" class="gal-card">
+      <div class="gal-thumb" style="background:linear-gradient(135deg,#0a0f1e,#1a1a3a);">
+        <svg viewBox="0 0 120 80" width="65%" xmlns="http://www.w3.org/2000/svg"><text x="10" y="20" font-size="8" fill="#5dade2" font-family="sans-serif" font-weight="bold">Explainable</text><text x="10" y="32" font-size="8" fill="#fff" font-family="sans-serif" font-weight="bold">Artificial</text><text x="10" y="44" font-size="8" fill="#fff" font-family="sans-serif" font-weight="bold">Intelligence</text><line x1="10" y1="50" x2="110" y2="50" stroke="#333" stroke-width="1"/><rect x="10" y="55" width="30" height="6" rx="2" fill="#27ae60" opacity=".7"/><rect x="45" y="55" width="20" height="6" rx="2" fill="#2980b9" opacity=".7"/><rect x="70" y="55" width="40" height="6" rx="2" fill="#e67e22" opacity=".7"/></svg>
+        <span class="gal-badge">XAI</span>
+      </div>
+      <div class="gal-body"><div class="gal-title blue">Explainable AI Infographic</div><div class="gal-desc">Visual breakdown of XAI challenges, validation metrics &amp; interpretability strategies</div><span class="gal-link">View Details ↓</span></div>
+    </a>
+
+  </div>
+
+  <hr class="divider">
+  <div class="sec-eyebrow">Academic Write-Ups</div>
+  <h2 class="sec-title">Detailed Documentation</h2>
+  <div class="sec-rule"></div>
+
+  <div class="proj-detail fade-up" id="project1">
+    <div class="proj-detail-header"><div class="proj-number">01</div><div><h2>Mapping the AI Landscape: A Framework for Algorithm Selection</h2><span class="proj-type-badge">Strategic Framework &amp; Domain Mapping</span></div></div>
+    <div class="proj-body">
+      <p><strong>The Challenge:</strong> Selecting the correct learning style and architecture is one of the most critical steps in solving real-world problems. This project provides a comprehensive visual and technical framework for categorizing algorithms based on their learning style, application domain, and task functionality.</p>
+      <div class="figure-wrap"><img src="ai_algorithms_landscape.png" alt="AI Algorithm Landscape" onerror="this.style.display='none'"><div class="fig-caption">Figure 1: Taxonomy of Modern AI, categorized by learning style and domain application.</div></div>
+      <h4>Domain-Specific Implementations</h4>
+      <table class="data-table"><thead><tr><th>Domain</th><th>Core Algorithms</th><th>Primary Use Case</th></tr></thead><tbody><tr><td><strong>Supervised Learning</strong></td><td>Random Forests, XGBoost, Decision Trees</td><td>Predictive analytics, risk assessment, financial forecasting</td></tr><tr><td><strong>Unsupervised Learning</strong></td><td>K-Means Clustering, PCA, Hierarchical Clustering</td><td>Customer segmentation, anomaly detection</td></tr><tr><td><strong>Deep Learning</strong></td><td>CNNs, RNNs, Transformers (BERT, GPT)</td><td>Computer vision, speech recognition, translation</td></tr><tr><td><strong>Generative AI</strong></td><td>Diffusion Models, GANs, LLMs</td><td>Synthetic data creation, content generation</td></tr></tbody></table>
+      <div class="insight-box"><h4>Reflection &amp; Insight</h4><p>This framework strengthened my understanding of how different algorithms align with specific problem types—enabling me to select appropriate models when solving practical problems across analytics, vision systems, and generative AI platforms.</p></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="proj-detail fade-up" id="project2">
+    <div class="proj-detail-header"><div class="proj-number">02</div><div><h2>Mapping Non-Linear Logic in Neural Architectures</h2><span class="proj-type-badge">Visual Presentation &amp; Optimization Analysis</span></div></div>
+    <div class="proj-body">
+      <p><strong>Context:</strong> Using the high-complexity Spiral dataset, I mapped how data flows through a network and identified the specific mechanical failures that lead to model plateaus.</p>
+      <div class="figure-wrap"><img src="spiral-experiment.png" alt="Spiral Dataset" onerror="this.style.display='none'"><div class="fig-caption">Figure 1: Initial training state demonstrating a linear bottleneck in the decision boundary.</div></div>
+      <table class="data-table"><thead><tr><th>Component</th><th>Strategic Role</th></tr></thead><tbody><tr><td><strong>Layers &amp; Neurons</strong></td><td>Proper scaling of hidden layers prevents the information bottleneck effect.</td></tr><tr><td><strong>Weights &amp; Optimization</strong></td><td>SGD or Adam update weights based on the loss function.</td></tr><tr><td><strong>Activation Functions</strong></td><td>ReLU and Tanh enable approximation of complex, non-linear functions.</td></tr></tbody></table>
+      <p><strong>Solution:</strong> Widening hidden layers from 2 to 8 neurons with Tanh activation allowed the model to wrap the spiral armatures more effectively.</p>
+      <div class="insight-box"><h4>Reflection &amp; Insight</h4><p>Low-level algorithmic choices directly affect high-level network behavior. Whether configuring Linux or building a multi-layer perceptron, success comes down to precise tuning of the underlying system.</p></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="proj-detail fade-up" id="project3">
+    <div class="proj-detail-header"><div class="proj-number">03</div><div><h2>Training Large Language Models: Architecture, Pipeline, and Cost Analysis</h2><span class="proj-type-badge">Infrastructure Roadmap &amp; Resource Analysis</span></div></div>
+    <div class="proj-body">
+      <p><strong>Context:</strong> This project explores the end-to-end training lifecycle of LLMs such as GPT, Claude, Gemini, and LLaMA — focusing on both the technical pipeline and the operational economics of LLM training.</p>
+      <div class="figure-wrap"><img src="llm-lifecycle.png" alt="LLM Lifecycle" onerror="this.style.display='none'"><div class="fig-caption">Figure 1: High-level overview of computational and data requirements for generative AI.</div></div>
+      <h4>Five Critical Cost Drivers</h4>
+      <ul><li><strong>Data:</strong> Collection, licensing, filtering, storage, and processing.</li><li><strong>Compute:</strong> Large-scale GPU or TPU clusters used for training.</li><li><strong>Electricity:</strong> The energy required to run high-performance hardware continuously.</li><li><strong>Time:</strong> Extended training cycles, experimentation, and iteration.</li><li><strong>Talent:</strong> Researchers, ML engineers, data engineers, and infrastructure teams.</li></ul>
+      <div class="insight-box"><h4>Reflection &amp; Insight</h4><p>This project moved me beyond simply using generative AI tools toward understanding the infrastructure decisions behind them. Cost constraints and training strategies directly shape real-world AI implementation.</p></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="proj-detail fade-up" id="project4">
+    <div class="proj-detail-header"><div class="proj-number">04</div><div><h2>Explainable AI (XAI): Building Trust in Opaque Systems</h2><span class="proj-type-badge">Transparency Framework &amp; Validation Roadmap</span></div></div>
+    <div class="proj-body">
+      <p><strong>The Challenge:</strong> As generative AI models become more capable, they become more difficult to interpret. This project maps validation techniques and performance metrics used to assess whether AI systems are reliable and trustworthy.</p>
+      <div class="figure-wrap"><img src="xai-infographic.png" alt="XAI Infographic" onerror="this.style.display='none'"><div class="fig-caption">Figure 1: XAI infographic illustrating opacity challenges, validation metrics, and interpretability strategies.</div></div>
+      <table class="data-table"><thead><tr><th>Area</th><th>Description</th><th>Why It Matters</th></tr></thead><tbody><tr><td><strong>Opacity &amp; Complexity</strong></td><td>Models rely on millions/billions of parameters.</td><td>Hard to explain how outputs are generated.</td></tr><tr><td><strong>Post-Hoc Explanations</strong></td><td>Explanations generated after the model decision.</td><td>Improves interpretability but may not fully reflect reasoning.</td></tr><tr><td><strong>Bias &amp; Data Quality</strong></td><td>Systems inherit noise from training data.</td><td>Leads to unfair or misleading decisions.</td></tr><tr><td><strong>Precision / Recall / F1</strong></td><td>Core classification performance metrics.</td><td>Quantify model reliability in deployment.</td></tr></tbody></table>
+      <h4>Interpretability Techniques</h4>
+      <ul><li><strong>Attention Visualization:</strong> Reveals which input parts the model focuses on most.</li><li><strong>Model Probing:</strong> Examines internal layers to understand learned features.</li><li><strong>Chain-of-Thought Prompting:</strong> Encourages step-by-step reasoning.</li><li><strong>Human-in-the-Loop Review:</strong> Manual oversight for high-risk decisions.</li></ul>
+      <div class="insight-box"><h4>Reflection &amp; Insight</h4><p>Studying XAI helped me connect technical performance metrics with broader ethical concerns. In cybersecurity, it is not enough to flag an alert — engineers must understand why it was triggered to validate its reliability.</p></div>
+    </div>
+  </div>
+
+</div>
+<footer class="site-footer"><strong>Jude Omo-Ojugo</strong>AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity<br><br><span style="font-size:.75rem;">© 2025 Jude's Portfolio.</span></footer>
+<div class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">&#8679;</div>
+<script>
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+</body>
+</html>

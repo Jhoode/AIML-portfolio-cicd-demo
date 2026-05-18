@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Jude's Portfolio</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .contact-layout{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:start;}
+    .contact-form-wrap{background:var(--c-surface);border:1px solid var(--c-border);border-radius:14px;padding:40px;box-shadow:var(--shadow-sm);}
+    .form-title{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--c-text);margin-bottom:6px;}
+    .form-sub{font-size:.86rem;color:var(--c-muted);margin-bottom:32px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .form-group{margin-bottom:20px;}
+    label{display:block;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--c-muted);margin-bottom:7px;}
+    input,textarea,select{width:100%;padding:12px 16px;font-family:var(--font-body);font-size:.9rem;color:var(--c-text);background:#f8fafc;border:1.5px solid var(--c-border);border-radius:8px;outline:none;transition:border-color .2s var(--ease),box-shadow .2s var(--ease);resize:vertical;}
+    input:focus,textarea:focus,select:focus{border-color:var(--c-hero-bright);box-shadow:0 0 0 3px rgba(41,128,185,.12);background:#fff;}
+    textarea{min-height:130px;}
+    .form-submit{display:flex;align-items:center;gap:14px;margin-top:8px;}
+    .btn-submit{font-family:var(--font-display);font-size:.85rem;font-weight:700;padding:13px 32px;border-radius:30px;border:none;background:var(--c-hero-bright);color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(41,128,185,.35);transition:background .22s var(--ease),transform .18s var(--ease);}
+    .btn-submit:hover{background:var(--c-hero-mid);transform:translateY(-2px);}
+    .form-note{font-size:.78rem;color:var(--c-faint);}
+    .success-msg{display:none;background:#eafaf1;border:1px solid #a9dfbf;border-radius:8px;padding:16px 20px;color:#1e8449;font-family:var(--font-display);font-size:.87rem;font-weight:600;margin-top:16px;}
+    .contact-info{display:flex;flex-direction:column;gap:20px;}
+    .info-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm);transition:transform .22s var(--ease),box-shadow .22s var(--ease);}
+    .info-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+    .info-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+    .info-label{font-family:var(--font-display);font-size:.68rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--c-faint);margin-bottom:4px;}
+    .info-value{font-family:var(--font-display);font-size:.9rem;font-weight:700;color:var(--c-text);}
+    .info-sub{font-size:.78rem;color:var(--c-muted);margin-top:3px;}
+    .avail-card{background:linear-gradient(135deg,var(--c-hero-dark),var(--c-hero-mid));border-radius:var(--radius);padding:24px;color:#fff;}
+    .avail-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .avail-dot{width:10px;height:10px;border-radius:50%;background:var(--c-green);box-shadow:0 0 0 3px rgba(26,188,156,.3);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(26,188,156,.3);}50%{box-shadow:0 0 0 6px rgba(26,188,156,.1);}}
+    .avail-title{font-family:var(--font-display);font-size:.88rem;font-weight:800;}
+    .avail-text{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:16px;}
+    .avail-tags{display:flex;flex-wrap:wrap;gap:8px;}
+    .avail-tag{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-family:var(--font-display);font-size:.72rem;font-weight:600;color:rgba(255,255,255,.9);}
+    .social-row{display:flex;gap:10px;margin-top:4px;}
+    .social-btn{display:inline-flex;align-items:center;gap:7px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:30px;padding:8px 16px;font-family:var(--font-display);font-size:.76rem;font-weight:700;color:var(--c-text);box-shadow:var(--shadow-sm);transition:all .2s var(--ease);}
+    .social-btn:hover{background:var(--c-hero-bright);border-color:var(--c-hero-bright);color:#fff;transform:translateY(-2px);}
+    @media(max-width:880px){.contact-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="linkedin.html">LinkedIn</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <p class="page-hero__eyebrow fade-up">Let's Connect</p>
+  <h1 class="page-hero__title fade-up delay-1">Get In Touch</h1>
+  <p class="page-hero__sub fade-up delay-2">Have a project, opportunity, or question? I'd love to hear from you.</p>
+</header>
+<div class="page-body">
+  <div class="contact-layout">
+    <div class="contact-form-wrap fade-up">
+      <div class="form-title">Send a Message</div>
+      <div class="form-sub">I typically respond within 24–48 hours. All fields marked * are required.</div>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Doe" required></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="jane@company.com" required></div>
+        <div class="form-group"><label>Company / Organization</label><input type="text" placeholder="Optional"></div>
+        <div class="form-group"><label>Subject *</label><select required><option value="" disabled selected>Select a subject</option><option>Job Opportunity</option><option>Project Collaboration</option><option>Speaking / Consulting</option><option>General Inquiry</option><option>Other</option></select></div>
+        <div class="form-group"><label>Message *</label><textarea placeholder="Tell me about your project, opportunity, or question..." required></textarea></div>
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Send Message →</button>
+          <span class="form-note">Your information is never shared.</span>
+        </div>
+        <div class="success-msg" id="successMsg">✅ Message sent! I'll get back to you within 24–48 hours.</div>
+      </form>
+    </div>
+    <div class="contact-info fade-up delay-2">
+      <div class="avail-card">
+        <div class="avail-header"><div class="avail-dot"></div><div class="avail-title">Available for Opportunities</div></div>
+        <p class="avail-text">Currently open to AI engineering, cloud security, and ML roles. Available for full-time, contract, and consulting engagements.</p>
+        <div class="avail-tags"><span class="avail-tag">Full-time</span><span class="avail-tag">Contract</span><span class="avail-tag">Consulting</span><span class="avail-tag">Remote / Hybrid</span></div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon" style="background:linear-gradient(135deg,#2980b9,#1a5276);">✉</div>
+        <div><div class="info-label">Email</div><div class="info-value">ojugo.jude@gmail.com</div><div class="info-sub">Preferred method of contact</div></div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon" style="background:linear-gradient(135deg,#0077b5,#005b8e);">in</div>
+        <div><div class="info-label">LinkedIn</div><div class="info-value">www.linkedin.com/in/
+jude-omo-ojugo-nse-smieee-59737999
+</div><div class="info-sub">Connect for professional networking</div></div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon" style="background:linear-gradient(135deg,#1abc9c,#16a085);">📍</div>
+        <div><div class="info-label">Location</div><div class="info-value">United States</div><div class="info-sub">Open to remote and hybrid opportunities</div></div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon" style="background:linear-gradient(135deg,#e67e22,#d35400);">⏱</div>
+        <div><div class="info-label">Response Time</div><div class="info-value">Within 24–48 Hours</div><div class="info-sub">Mon – Fri, business hours</div></div>
+      </div>
+      <div>
+        <div class="sec-eyebrow" style="margin-bottom:12px;">Find Me Online</div>
+        <div class="social-row">
+          <a href="linkedin.html" class="social-btn">in LinkedIn</a>
+          <a href="https://github.com" target="_blank" class="social-btn">⌥ GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer"><strong>Jude Omo-Ojugo</strong>AWS Certified Solutions Architect · AI Solutions Specialist · M.S. Cybersecurity<br><br><span style="font-size:.75rem;">© 2025 Jude's Portfolio.</span></footer>
+<script>
+  function handleSubmit(e){e.preventDefault();var m=document.getElementById('successMsg');m.style.display='block';e.target.reset();setTimeout(function(){m.style.display='none';},6000);}
+</script>
+</body>
+</html>
